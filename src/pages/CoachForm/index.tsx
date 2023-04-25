@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Input';
@@ -13,7 +14,8 @@ import api from '../../services/api';
 import './styles.css';
 
 function CoachForm() {
-  const history = useHistory();
+ // const history = useHistory();
+ const history = useNavigate();
 
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState('');
@@ -60,7 +62,8 @@ function CoachForm() {
     }).then(() => {
       alert('Cadastro realizado com sucesso!');
 
-      history.push('/');
+      //history.push('/');
+      history('/');
     }).catch(() => {
       alert('Erro no cadastro!');
     });
