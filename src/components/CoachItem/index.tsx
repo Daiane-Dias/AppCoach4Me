@@ -21,9 +21,17 @@ export interface Coach {
 }
 export interface ClassSchedule {
   id: number;
-  week_day:number;
+  weekday:WeekDay;
   from: number;
   to: number;
+}
+ enum  WeekDay  {
+  domingo = 'Domingo', 
+   segunda= 'Segunda-feira',
+  // quarta=2,
+  // quinta=3,
+  // sexta= 4,
+  // sabado= 5,
 }
 interface CoachItemProps {
   coach: Coach;
@@ -38,9 +46,9 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach }) => {
       // connections_id:coach.id,
 
     });
-      api.post('classes', {
+      api.post('class_schedule', {
         //coach_id: coach.id,
-         classes_id: coach.teste.id,
+         class_id: coach.teste.id,
         // class_schedule_id:coach.id,
         // connections_id:coach.id,
   
@@ -66,7 +74,7 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach }) => {
         <p></p>
       
         <p>Horario:
-        <strong>{coach.teste.week_day}</strong>
+        <strong>{coach.teste.weekday}</strong>
           <strong>De {coach.teste.from}</strong>
           <strong>até {coach.teste.to}</strong>
         </p>
