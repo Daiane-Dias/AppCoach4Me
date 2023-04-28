@@ -14,8 +14,17 @@ export interface Coach {
   name: string;
   subject: string;
   whatsapp: string;
+  teste:ClassSchedule;
+  // week_day:number;
+  // from: any;
+  // to: any;
 }
-
+export interface ClassSchedule {
+  id: number;
+  week_day:number;
+  from: number;
+  to: number;
+}
 interface CoachItemProps {
   coach: Coach;
 }
@@ -24,7 +33,18 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach }) => {
   function createNewConnection() {
     api.post('connections', {
       coach_id: coach.id,
+      // classes_id: coach.id,
+      // class_schedule_id:coach.id,
+      // connections_id:coach.id,
+
     });
+      api.post('classes', {
+        //coach_id: coach.id,
+         classes_id: coach.teste.id,
+        // class_schedule_id:coach.id,
+        // connections_id:coach.id,
+  
+      });
   }
 
   return (
@@ -43,9 +63,16 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach }) => {
         <p>Preço/Hora
           <strong>R$ {coach.cost}</strong>
         </p>
-        
+        <p></p>
+      
+        <p>Horario:
+        <strong>{coach.teste.week_day}</strong>
+          <strong>De {coach.teste.from}</strong>
+          <strong>até {coach.teste.to}</strong>
+        </p>
         <a
           target="_blank" 
+          rel="noreferrer"
           onClick={createNewConnection} 
           href={`https://wa.me/${coach.whatsapp}`}
         >

@@ -85,7 +85,7 @@ function CoachList() {
 
       <main>
         {coaches.map((coach: Coach) => {
-          return <CoachItem key={coach.id} coach={coach} />;
+          return <CoachItem key={coach.id} coach={coach}/>;
         })}
       </main>
     </div>
