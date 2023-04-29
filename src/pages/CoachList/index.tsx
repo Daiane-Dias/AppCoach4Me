@@ -30,6 +30,7 @@ function CoachList() {
     setCoaches(response.data);
   }
 
+
   return (
     <div id="page-coach-list" className="container">
       <PageHeader title="Estes são os coachs disponíveis.">
